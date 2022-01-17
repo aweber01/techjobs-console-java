@@ -1,10 +1,7 @@
 package org.launchcode.techjobs.console;
 
 import java.sql.SQLOutput;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Created by LaunchCode
@@ -47,8 +44,16 @@ public class TechJobs {
 
                     System.out.println("\n*** All " + columnChoices.get(columnChoice) + " Values ***");
 
-                    // Print list of skills, employers, etc
+                    // Print list of skills, employers, etc alphabetized
+
+                    ArrayList<String> alphabetizedResults = new ArrayList<>();
+
                     for (String item : results) {
+                        alphabetizedResults.add(item);
+                    }
+                    Collections.sort(alphabetizedResults);
+
+                    for (String item : alphabetizedResults) {
                         System.out.println(item);
                     }
                 }
@@ -121,7 +126,6 @@ public class TechJobs {
                 }
                 System.out.println("*****");
             }
-            //System.out.println("printJobs is not implemented yet");
         } else {
             System.out.println("No jobs found.");
         }

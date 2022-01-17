@@ -8,6 +8,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.*;
+import java.util.stream.Stream;
 
 /**
  * Created by LaunchCode
@@ -130,7 +131,9 @@ public class JobData {
         ArrayList<HashMap<String, String>> values = new ArrayList<>();
 
         for (HashMap<String, String> job : allJobs) {
-            if(job.containsValue(value)) {
+            String jobValue = job.values().toString().toLowerCase();
+            if (jobValue.contains(value)) {
+
                 values.add(job);
             }
         }
